@@ -1,0 +1,13 @@
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit(dataForm.value)">
+
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name">
+
+    <label for="email">Email</label>
+    <input type="text" id="email" formControlName="email">
+
+    <button type="submit">Go!</button>
+
+</form>
+
+<app-mycomponent [watchForm]="dataForm.value"></app-mycomponent>
