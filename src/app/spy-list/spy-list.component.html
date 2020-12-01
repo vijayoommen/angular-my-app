@@ -1,0 +1,9 @@
+<p>Spy List</p>
+
+<div>
+    <input type="text" [(ngModel)]="newSpy" (keyup.enter)="addHero()">
+    <button (click)="remove()">Remove</button>
+    <div *ngFor="let spy of spies">
+        {{ spy }}
+    </div>
+</div>

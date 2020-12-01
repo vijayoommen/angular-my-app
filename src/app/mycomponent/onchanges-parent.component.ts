@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, SimpleChanges, ViewChild, 
-  DoCheck, AfterContentChecked } from '@angular/core';
+  DoCheck, AfterContentChecked, AfterContentInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 import { MycomponentComponent } from './mycomponent.component';
@@ -9,7 +9,7 @@ import { MycomponentComponent } from './mycomponent.component';
     templateUrl: './onchanges-parent.component.html',
     styles: []
   })
-  export class OnChangesParentComponent implements OnInit, DoCheck{
+  export class OnChangesParentComponent implements OnInit, DoCheck, AfterContentInit{
     dataForm;
     @ViewChild(MycomponentComponent) childView: MycomponentComponent;
 
@@ -23,7 +23,7 @@ import { MycomponentComponent } from './mycomponent.component';
     }
   
     onSubmit(formValues){
-      console.log('form values submitted');
+      console.log(`name: ${formValues.name}| email: ${formValues.email}`);
     }
 
     ngOnInit(){
@@ -35,6 +35,10 @@ import { MycomponentComponent } from './mycomponent.component';
     }
 
     ngAfterContentChecked(){
-      console.log('after connection checked')
+      console.log('AfterContentChecked invoked')
+    }
+
+    ngAfterContentInit(){
+      console.log('ngAfterContentInit invoked.');
     }
   }
