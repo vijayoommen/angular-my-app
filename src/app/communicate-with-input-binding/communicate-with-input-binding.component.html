@@ -1,0 +1,11 @@
+<p>Communicate with Input Binding</p>
+
+<div>
+    <input [(ngModel)]="hero" (keyup.enter)="add()">
+    <span *ngIf="hero">
+        The name now is {{hero}}
+    </span>
+    <app-communicate-with-input-binding-child 
+        [packetName]="hero" 
+        (capatalizedEvent)="onCapatalized($event)" ></app-communicate-with-input-binding-child>
+</div>
